@@ -2,10 +2,12 @@ package com.vlada.shoesstore.adapters
 
 
 import android.content.Context
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -25,8 +27,8 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, con
 
         val view: View = LayoutInflater.from(parent?.context).inflate(R.layout.category_type_list, parent, false)
 
-        /*val cardView = view.findViewById<CardView>(R.id.cardView)
-        cardView.radius = 5.0F;*/
+        val categoryTypeCardView = view.findViewById<CardView>(R.id.categoryTypeCardView)
+        //categoryTypeCardView.radius = 5.0F
 
         return ViewHolder(view)
     }
@@ -37,7 +39,7 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, con
 
         holder.setOnRecyclerViewClickListener(object : RecyclerViewClickListener {
             override fun onRecyclerViewClickListener(view: View, position: Int) {
-                Toast.makeText(mContext, "123", Toast.LENGTH_LONG).show()
+                Toast.makeText(mContext, "Когда-нибудь я это закончу", Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -62,8 +64,11 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, con
 
         fun bindItems(categoryType: CategoryType) {
 
-            val textViewCategoryTypeName = itemView.findViewById<TextView>(R.id.textViewCategoryTypeName)
-            textViewCategoryTypeName.text = categoryType.categoryTypeName
+            var categoryTypePhoto = itemView.findViewById<ImageView>(R.id.categoryTypePhoto)
+            categoryTypePhoto.setImageResource(categoryType.photo)
+
+            val categoryTypeText = itemView.findViewById<TextView>(R.id.categoryTypeText)
+            categoryTypeText.text = categoryType.categoryTypeName
 
             itemView.setOnClickListener(this)
         }
