@@ -6,26 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.vlada.shoesstore.activities.MainActivity">
 
-    <!--<RelativeLayout
-        android:id="@+id/imageViewRL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo" />
-
-    </RelativeLayout>!-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        >
+        android:layout_marginTop="15dp">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/catalogTypeRecyclerView"

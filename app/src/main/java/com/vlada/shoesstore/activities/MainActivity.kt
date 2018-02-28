@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         val catalogTypeRecyclerView = findViewById<RecyclerView>(R.id.catalogTypeRecyclerView)
         catalogTypeRecyclerView.layoutManager = LinearLayoutManager(this)
 
-       // val logoImageView = findViewById<ImageView>(R.id.logoImageView)
-
         val categoryTypes = ArrayList<CategoryType>()
         categoryTypes.add(CategoryType(1,"Женская коллекция", R.drawable.women))
         categoryTypes.add(CategoryType(2,"Мужская коллекция",  R.drawable.men))
