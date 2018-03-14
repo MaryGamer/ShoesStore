@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() {
         categoryTypes.add(CategoryType(3,"Детская коллекция(девочки)", R.drawable.child_women))
         categoryTypes.add(CategoryType(4,"Детская коллекция(мальчики)", R.drawable.child_men))
 
-        val adapter = RecyclerViewAdapter(categoryTypes, {categoryType: CategoryType -> categoryClick(categoryType)})
+        val adapter = RecyclerViewAdapter(categoryTypes, {categoryType: CategoryType -> categoryTypeClick(categoryType)})
         catalogTypeRecyclerView.adapter = adapter
     }
 
-    private fun categoryClick(categoryType: CategoryType){
+    private fun categoryTypeClick(categoryType: CategoryType){
         Toast.makeText(this, "${categoryType.categoryTypeName}", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, Catalog::class.java)
         startActivity(intent)

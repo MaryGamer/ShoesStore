@@ -3,4 +3,4 @@ package com.vlada.shoesstore.models
 /**
  * Created by Vlada on 20.02.2018.
  */
-data class CategoryType(var id: Int,  var categoryTypeName: String, var photo: Int)
+data class CategoryType(val id: Int,  val categoryTypeName: String, val photo: Int)

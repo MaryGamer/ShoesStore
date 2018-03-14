@@ -14,7 +14,7 @@ import com.vlada.shoesstore.models.CategoryType
 /**
  * Created by Vlada on 20.02.2018.
  */
-class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val categoryClickListener: (CategoryType) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val categoryTypeClickListener: (CategoryType) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup?,
@@ -23,14 +23,13 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val
         val view: View = LayoutInflater.from(parent?.context).inflate(R.layout.category_type_list, parent, false)
 
         val categoryTypeCardView = view.findViewById<CardView>(R.id.categoryTypeCardView)
-        //categoryTypeCardView.radius = 5.0F
 
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
 
-        holder.bindItems(categoryTypeNameList[position], categoryClickListener)
+        holder.bindItems(categoryTypeNameList[position], categoryTypeClickListener)
 
     }
 
@@ -40,7 +39,7 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        fun bindItems(categoryType: CategoryType, categoryClickListener: (CategoryType) -> Unit) {
+        fun bindItems(categoryType: CategoryType, categoryTypeClickListener: (CategoryType) -> Unit) {
 
             var categoryTypePhoto = itemView.findViewById<ImageView>(R.id.categoryTypePhoto)
             categoryTypePhoto.setImageResource(categoryType.photo)
@@ -49,7 +48,7 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val
             categoryTypeText.text = categoryType.categoryTypeName
 
             itemView.setOnClickListener{
-                categoryClickListener(categoryType)
+                categoryTypeClickListener(categoryType)
             }
         }
     }
