@@ -24,6 +24,6 @@ class ProductList : AppCompatActivity() {
         productList.add(Product(2, "Кроссовки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
         productList.add(Product(3, "Сапоги", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
         productList.add(Product(4, "Тапочки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
-        productList.add(Product(5, "Туфли", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
+        productList.add(Product(5, "Туфли", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел123"))
     }
 }
