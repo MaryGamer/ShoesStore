@@ -12,21 +12,33 @@ import com.vlada.shoesstore.models.Category
 /**
  * Created by Vlada on 28.02.2018.
  */
-class CatalogCustomAdapter(val categoryNameList: ArrayList<Category>, val categoryClickListener: (Category) -> Unit) : RecyclerView.Adapter<CatalogCustomAdapter.ViewHolder>() {
+class CatalogCustomAdapter(private val categoryNameList: ArrayList<Category>,
+                           private val onCategoryClick: (Category) -> Unit) : RecyclerView.Adapter<CatalogCustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?,
                                     viewType: Int): ViewHolder {
 
         val view: View = LayoutInflater.from(parent?.context).inflate(R.layout.catalog_row, parent, false)
 
-        val categoryCardView = view.findViewById<CardView>(R.id.categoryCardView)
+        //val categoryCardView = view.findViewById<CardView>(R.id.categoryCardView)
 
-        return ViewHolder(view)
+        return ViewHolder(view).apply {
+            view.setOnClickListener {
+                val position = adapterPosition
+
+                if (position != RecyclerView.NO_POSITION) {
+                    val name = categoryNameList[position]
+                    onCategoryClick(name)
+                }
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: CatalogCustomAdapter.ViewHolder, position: Int) {
 
-        holder.bindItems(categoryNameList[position], categoryClickListener)
+        var category = categoryNameList[position]
+
+        holder.categoryText.text = category.categoryName
 
     }
 
@@ -36,14 +48,6 @@ class CatalogCustomAdapter(val categoryNameList: ArrayList<Category>, val catego
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(category: Category, categoryClickListener: (Category) -> Unit) {
-
-            var categoryText = itemView.findViewById<TextView>(R.id.categoryTextView)
-            categoryText.text = category.categoryName
-
-            itemView.setOnClickListener{
-                categoryClickListener(category)
-            }
-        }
+        var categoryText = itemView.findViewById<TextView>(R.id.categoryTextView)
     }
 }

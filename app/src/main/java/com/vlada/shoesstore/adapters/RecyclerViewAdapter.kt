@@ -14,7 +14,8 @@ import com.vlada.shoesstore.models.CategoryType
 /**
  * Created by Vlada on 20.02.2018.
  */
-class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val categoryTypeClickListener: (CategoryType) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(private val categoryTypeNameList: ArrayList<CategoryType>,
+                          private val onCategoryTypeClick: (CategoryType) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup?,
@@ -22,14 +23,26 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val
 
         val view: View = LayoutInflater.from(parent?.context).inflate(R.layout.category_type_list, parent, false)
 
-        val categoryTypeCardView = view.findViewById<CardView>(R.id.categoryTypeCardView)
+        //val categoryTypeCardView = view.findViewById<CardView>(R.id.categoryTypeCardView)
 
-        return ViewHolder(view)
+        return ViewHolder(view).apply {
+            view.setOnClickListener {
+                val position = adapterPosition
+
+                if (position != RecyclerView.NO_POSITION) {
+                    val name = categoryTypeNameList[position]
+                    onCategoryTypeClick(name)
+                }
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
 
-        holder.bindItems(categoryTypeNameList[position], categoryTypeClickListener)
+        var category = categoryTypeNameList[position]
+
+        holder.categoryTypePhoto?.setImageResource(category.photo)
+        holder.categoryTypeText?.text = category.categoryTypeName
 
     }
 
@@ -37,19 +50,10 @@ class RecyclerViewAdapter(val categoryTypeNameList: ArrayList<CategoryType>, val
         return categoryTypeNameList.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(categoryType: CategoryType, categoryTypeClickListener: (CategoryType) -> Unit) {
+        var categoryTypePhoto = itemView.findViewById<ImageView>(R.id.categoryTypePhoto)
 
-            var categoryTypePhoto = itemView.findViewById<ImageView>(R.id.categoryTypePhoto)
-            categoryTypePhoto.setImageResource(categoryType.photo)
-
-            val categoryTypeText = itemView.findViewById<TextView>(R.id.categoryTypeText)
-            categoryTypeText.text = categoryType.categoryTypeName
-
-            itemView.setOnClickListener{
-                categoryTypeClickListener(categoryType)
-            }
-        }
+        var categoryTypeText = itemView.findViewById<TextView>(R.id.categoryTextView)
     }
 }

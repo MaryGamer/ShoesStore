@@ -17,11 +17,15 @@ import com.vlada.shoesstore.models.CategoryType
  */
 class Catalog : AppCompatActivity() {
 
+    private lateinit var catalogRecyclerView: RecyclerView
+
+   // private val adapter = CatalogCustomAdapter(Category.catalog) { category -> onCategoryClick(category) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalog)
 
-        val catalogRecyclerView = findViewById<RecyclerView>(R.id.catalogRecyclerView)
+        catalogRecyclerView = findViewById(R.id.catalogRecyclerView)
         catalogRecyclerView.layoutManager = LinearLayoutManager(this)
 
         val catalog = ArrayList<Category>()
@@ -31,11 +35,11 @@ class Catalog : AppCompatActivity() {
         catalog.add(Category(4, "Тапочки", 1))
         catalog.add(Category(5, "Туфли", 1))
 
-        val adapter = CatalogCustomAdapter(catalog, {category: Category -> categoryClick(category)})
+        val adapter = CatalogCustomAdapter(catalog, { category: Category -> onCategoryClick(category) })
         catalogRecyclerView.adapter = adapter
     }
 
-    private fun categoryClick(category: Category){
+    private fun onCategoryClick(category: Category) {
         Toast.makeText(this, "${category.categoryName}", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, ProductList::class.java)
         startActivity(intent)
