@@ -39,7 +39,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun onCategoryTypeClick(categoryType: CategoryType) {
         Toast.makeText(this, "${categoryType.categoryTypeName}", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, Catalog::class.java)
+        val intent = Intent(this, Catalog::class.java) //здесь
         startActivity(intent)
     }
+
+    /*
+    * {
+    *   "name" : "крч имя",
+    *   "items" : ['Туфли','Босоножки']
+    * }
+    *
+    * */
 }

@@ -23,7 +23,7 @@ class RecyclerViewAdapter(private val categoryTypeNameList: ArrayList<CategoryTy
 
         val view: View = LayoutInflater.from(parent?.context).inflate(R.layout.category_type_list, parent, false)
 
-        //val categoryTypeCardView = view.findViewById<CardView>(R.id.categoryTypeCardView)
+        val categoryTypeCardView = view.findViewById<CardView>(R.id.categoryTypeCardView)
 
         return ViewHolder(view).apply {
             view.setOnClickListener {
