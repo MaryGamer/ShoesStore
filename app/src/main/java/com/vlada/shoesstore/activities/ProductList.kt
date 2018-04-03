@@ -27,11 +27,11 @@ class ProductList : AppCompatActivity() {
         productListRecyclerView.layoutManager = GridLayoutManager(this, 2)
 
         val productList = ArrayList<Product>()
-        productList.add(Product(1, "Босоножки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
-        productList.add(Product(2, "Босоножки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
-        productList.add(Product(3, "Босоножки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
-        productList.add(Product(4, "Босоножки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел"))
-        productList.add(Product(5, "Босоножки", "lalalalalalalala", R.drawable.women, 6850.00, true, "Юничел123"))
+        productList.add(Product(1, "Босоножки", "lalalalalalalala", R.drawable.women, "6850.00", "В наличие", "Юничел"))
+        productList.add(Product(2, "Босоножки", "lalalalalalalala", R.drawable.women, "6850.00", "В наличие", "Юничел"))
+        productList.add(Product(3, "Босоножки", "lalalalalalalala", R.drawable.women, "6850.00", "Нет в наличии", "Юничел"))
+        productList.add(Product(4, "Босоножки", "lalalalalalalala", R.drawable.women, "6850.00", "В наличие", "Юничел"))
+        productList.add(Product(5, "Босоножки", "lalalalalalalala", R.drawable.women, "6850.00", "В наличие", "Юничел123"))
 
         val adapter = ProductListAdapter(productList, { product: Product -> onProductClick(product) })
         productListRecyclerView.adapter = adapter

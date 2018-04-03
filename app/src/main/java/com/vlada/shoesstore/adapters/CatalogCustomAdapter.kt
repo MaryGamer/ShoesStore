@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.vlada.shoesstore.R
 import com.vlada.shoesstore.models.Category
@@ -39,6 +40,7 @@ class CatalogCustomAdapter(private val categoryNameList: ArrayList<Category>,
         var category = categoryNameList[position]
 
         holder.categoryText.text = category.categoryName
+        holder.categoryPhoto.setImageResource(category.photo)
 
     }
 
@@ -49,5 +51,7 @@ class CatalogCustomAdapter(private val categoryNameList: ArrayList<Category>,
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var categoryText = itemView.findViewById<TextView>(R.id.categoryTextView)
+
+        var categoryPhoto = itemView.findViewById<ImageView>(R.id.imageViewCatalog)
     }
 }

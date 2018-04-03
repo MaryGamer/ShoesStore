@@ -23,17 +23,64 @@
                 android:id="@+id/imageViewProductList"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:scaleType="centerCrop"
+                android:layout_below="@+id/ProductListTextView"
                 android:layout_centerInParent="true"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/ProductListTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageViewProductList"
                 android:layout_centerHorizontal="true"
+                android:padding="8dp"
+                android:text="Bosonozhki"
+                android:textColor="#000" />
 
+            <TextView
+                android:id="@+id/TextPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewProductList"
+                android:padding="5dp"
+                android:text="Цена:"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/PriceProductListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewProductList"
+                android:layout_toRightOf="@+id/TextPrice"
+                android:padding="5dp"
+                android:text="8605.00"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/AvalibilityProductListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/PriceProductListTextView"
+                android:padding="5dp"
+                android:text="Нет в наличии"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/ManufacturerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/AvalibilityProductListTextView"
+                android:padding="5dp"
+                android:text="Производитель:"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/ManufacturerListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ManufacturerText"
+                android:padding="5dp"
+                android:text="Юничел 123"
                 android:textColor="#000" />
 
         </RelativeLayout>

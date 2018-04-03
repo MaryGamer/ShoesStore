@@ -36,8 +36,11 @@ class ProductListAdapter(private val productList: ArrayList<Product>,
 
         var productList = productList[position]
 
-        holder?.productText?.text = productList.productName
+        holder?.productName?.text = productList.productName
         holder?.productPhoto?.setImageResource(productList.photo)
+        holder?.productPrice?.text = productList.price
+        holder?.productAvalibility?.text = productList.avalibility
+        holder?.productManufacturer?.text = productList.manufacturer
     }
 
     override fun getItemCount(): Int {
@@ -46,7 +49,10 @@ class ProductListAdapter(private val productList: ArrayList<Product>,
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var productText = itemView.findViewById<TextView>(R.id.ProductListTextView)
+        var productName = itemView.findViewById<TextView>(R.id.ProductListTextView)
         var productPhoto = itemView.findViewById<ImageView>(R.id.imageViewProductList)
+        var productPrice = itemView.findViewById<TextView>(R.id.PriceProductListTextView)
+        var productAvalibility = itemView.findViewById<TextView>(R.id.AvalibilityProductListTextView)
+        var productManufacturer = itemView.findViewById<TextView>(R.id.ManufacturerListTextView)
     }
 }

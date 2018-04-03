@@ -3,6 +3,7 @@ package com.vlada.shoesstore.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
@@ -21,14 +22,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         catalogTypeRecyclerView = findViewById(R.id.catalogTypeRecyclerView)
-        catalogTypeRecyclerView.layoutManager = LinearLayoutManager(this)
+        catalogTypeRecyclerView.layoutManager = GridLayoutManager(this, 2)
 
 
         val categoryTypes = ArrayList<CategoryType>()
-        categoryTypes.add(CategoryType(1, "Женская коллекция", R.drawable.women))
-        categoryTypes.add(CategoryType(2, "Мужская коллекция", R.drawable.men))
-        categoryTypes.add(CategoryType(3, "Детская коллекция(девочки)", R.drawable.child_women))
-        categoryTypes.add(CategoryType(4, "Детская коллекция(мальчики)", R.drawable.child_men))
+        categoryTypes.add(CategoryType(1, "Женская коллекция", R.drawable.girl))
+        categoryTypes.add(CategoryType(2, "Мужская коллекция", R.drawable.boy))
+        categoryTypes.add(CategoryType(3, "Детская коллекция(девочки)", R.drawable.child_girl))
+        categoryTypes.add(CategoryType(4, "Детская коллекция(мальчики)", R.drawable.child_boy))
 
         val adapter = RecyclerViewAdapter(categoryTypes, { categoryType: CategoryType -> onCategoryTypeClick(categoryType) })
         catalogTypeRecyclerView.adapter = adapter

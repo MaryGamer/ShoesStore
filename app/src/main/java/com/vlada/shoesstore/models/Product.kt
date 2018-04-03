@@ -5,5 +5,5 @@ package com.vlada.shoesstore.models
  */
 // TODO: photo должно быть в String
 class Product (val productId: Int, val productName: String, val description: String,
-               val photo: Int, val price: Double, val avalibility: Boolean,
+               val photo: Int, val price: String, val avalibility: String,
                val manufacturer: String)

@@ -29,11 +29,11 @@ class Catalog : AppCompatActivity() {
         catalogRecyclerView.layoutManager = LinearLayoutManager(this)
 
         val catalog = ArrayList<Category>()
-        catalog.add(Category(1, "Босоножки", 1))
-        catalog.add(Category(2, "Кроссовки", 1))
-        catalog.add(Category(3, "Сапоги", 1))
-        catalog.add(Category(4, "Тапочки", 1))
-        catalog.add(Category(5, "Туфли", 1))
+        catalog.add(Category(1, "Босоножки", 1, R.drawable.high_heel1))
+        catalog.add(Category(2, "Кроссовки", 1, R.drawable.sneakers))
+        catalog.add(Category(3, "Сапоги", 1, R.drawable.high_heel))
+        catalog.add(Category(4, "Тапочки", 1, R.drawable.women_slippers))
+        catalog.add(Category(5, "Туфли", 1, R.drawable.high_heel2))
 
         val adapter = CatalogCustomAdapter(catalog, { category: Category -> onCategoryClick(category) })
         catalogRecyclerView.adapter = adapter
