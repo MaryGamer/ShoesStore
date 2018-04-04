@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 import com.vlada.shoesstore.R
 import com.vlada.shoesstore.models.Category
 
@@ -40,7 +41,7 @@ class CatalogCustomAdapter(private val categoryNameList: ArrayList<Category>,
         var category = categoryNameList[position]
 
         holder.categoryText.text = category.categoryName
-        holder.categoryPhoto.setImageResource(category.photo)
+        Picasso.get().load(category.photoUrl).into(holder?.categoryPhoto)
 
     }
 

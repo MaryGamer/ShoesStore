@@ -32,4 +32,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'io.paperdb:paperdb:2.6'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
+    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.22.5'
 }
