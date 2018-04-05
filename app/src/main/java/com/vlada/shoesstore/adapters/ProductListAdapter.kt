@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 import com.vlada.shoesstore.R
 import com.vlada.shoesstore.models.Product
 
-/**
- * Created by Vlada on 21.03.2018.
- */
+
 class ProductListAdapter(private val productList: ArrayList<Product>,
-                         private val onProductClick: (Product) -> Unit) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+                         private val onProductClick: (Product) -> Unit
+) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
 
@@ -32,20 +32,31 @@ class ProductListAdapter(private val productList: ArrayList<Product>,
         }
     }
 
+
+
     override fun onBindViewHolder(holder: ProductListAdapter.ViewHolder?, position: Int) {
 
         var productList = productList[position]
 
         holder?.productName?.text = productList.productName
-        holder?.productPhoto?.setImageResource(productList.photo)
         holder?.productPrice?.text = productList.price
         holder?.productAvalibility?.text = productList.avalibility
         holder?.productManufacturer?.text = productList.manufacturer
+        try {
+            Picasso.get().load(productList.photoUrl).into(holder?.productPhoto)
+        }
+        catch (e: Exception){
+            holder?.productPhoto?.setImageResource(R.drawable.girl)
+        }
     }
+
+
 
     override fun getItemCount(): Int {
         return productList.size
     }
+
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

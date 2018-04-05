@@ -5,11 +5,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import io.paperdb.Paper
 
-/**
- * Created by Vlada on 04.04.2018.
- */
-
-
 class App: Application() {
 
     override fun onCreate() {
